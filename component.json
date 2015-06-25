@@ -2,13 +2,13 @@
   "name": "analytics.js-integration-fullstory",
   "repo": "segment-integrations/analytics.js-integration-fullstory",
   "description": "The Fullstory analytics.js integration.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "main": "lib/index.js",
   "dependencies": {
     "ianstormtaylor/to-camel-case": "0.2.1",
     "ndhoule/foldl": "^1.0.3",
-    "segmentio/analytics.js-integration": "0.3.x",
+    "segmentio/analytics.js-integration": "^1.0.0",
     "ianstormtaylor/is": "0.1.0"
   },
   "development": {

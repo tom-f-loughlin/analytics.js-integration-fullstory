@@ -64,6 +64,7 @@ describe('FullStory', function() {
     describe('#identify', function() {
       beforeEach(function() {
         analytics.stub(window.FS, 'identify');
+        analytics.stub(window.FS, 'setUserVars');
       });
 
       it('should default to anonymousId', function() {

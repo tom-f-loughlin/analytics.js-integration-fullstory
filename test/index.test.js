@@ -68,7 +68,7 @@ describe('FullStory', function() {
 
       it('should default to anonymousId', function() {
         analytics.identify();
-        analytics.called(window.FS.identify);
+        analytics.called(window.FS.setUserVars);
       });
 
       it('should only send strings as the id', function() {

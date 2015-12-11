@@ -73,7 +73,7 @@ describe('FullStory', function() {
         analytics.called(window.FS.setUserVars);
         var traits = window.FS.setUserVars.args[0][0];
         analytics.assert(traits && traits.hasOwnProperty('segmentAnonymousId_str'),
-           "didn't set anonymous id correctly");
+           'did not set anonymous id correctly');
       });
 
       it('should only send strings as the id', function() {
@@ -82,7 +82,7 @@ describe('FullStory', function() {
         analytics.didNotCall(window.FS.setUserVars);
         var traits = window.FS.identify.args[0][0];
         analytics.assert(traits && !traits.hasOwnProperty('segmentAnonymousId_str'),
-           "did set anonymous id despite user id");
+           'did set anonymous id despite user id');
       });
 
       it('should send an id', function() {

@@ -64,16 +64,25 @@ describe('FullStory', function() {
     describe('#identify', function() {
       beforeEach(function() {
         analytics.stub(window.FS, 'identify');
+        analytics.stub(window.FS, 'setUserVars');
       });
 
       it('should default to anonymousId', function() {
         analytics.identify();
-        analytics.called(window.FS.identify);
+        analytics.didNotCall(window.FS.identify);
+        analytics.called(window.FS.setUserVars);
+        var traits = window.FS.setUserVars.args[0][0];
+        analytics.assert(traits && traits.hasOwnProperty('segmentAnonymousId_str'),
+           'did not set anonymous id correctly');
       });
 
       it('should only send strings as the id', function() {
         analytics.identify(1);
         analytics.called(window.FS.identify, '1');
+        analytics.didNotCall(window.FS.setUserVars);
+        var traits = window.FS.identify.args[0][0];
+        analytics.assert(traits && !traits.hasOwnProperty('segmentAnonymousId_str'),
+           'did set anonymous id despite user id');
       });
 
       it('should send an id', function() {

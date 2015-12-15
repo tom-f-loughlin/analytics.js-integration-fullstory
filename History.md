@@ -1,4 +1,23 @@
 
+1.0.7 / 2015-12-15
+==================
+
+  * Correction to handling of anonymous identifiers.
+
+1.0.6 / 2015-12-15
+==================
+
+  * Merge pull request #4 from fullstorydev/fka3/anonid
+  * Merge branch 'fka3/anonid' of https://github.com/fullstorydev/segment-integration-fullstory into fka3/anonid
+  * style nit
+  * Test fixes after find a bad node version
+  * Okay, that works now.  Had a stale node
+  * Correction to handling of anonymous identifiers.
+  * Review naming nit
+  * Probably need to stub this too...
+  * Correction to handling of anonymous identifiers.
+  * Correction to handling of anonymous identifiers.
+
 1.0.5 / 2015-06-30
 ==================
 

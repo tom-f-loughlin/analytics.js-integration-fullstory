@@ -4,8 +4,6 @@
   "rules": {
     "global-strict": 0,
     "max-len": 0,
-    // FIXME: Refactor and remove this rule
-    "no-bitwise": 1,
     "strict": 1
   },
 

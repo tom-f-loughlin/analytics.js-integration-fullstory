@@ -101,8 +101,9 @@ describe('FullStory', function() {
       });
 
       it('should map integers properly', function() {
-        analytics.identify('id', { name: 'Test', revenue: 7 });
-        analytics.called(window.FS.identify, 'id', { displayName: 'Test', revenue_int: 7 });
+        // JavaScript only has Number, so 3.0 === 3 and is an "int"
+        analytics.identify('id', { name: 'Test', revenue: 7, number: 3.0 });
+        analytics.called(window.FS.identify, 'id', { displayName: 'Test', revenue_int: 7, number_int: 3 });
       });
 
       it('should map floats properly', function() {
@@ -118,6 +119,18 @@ describe('FullStory', function() {
       it('should map booleans properly', function() {
         analytics.identify('id3', { name: 'Steven', registered: true });
         analytics.called(window.FS.identify, 'id3', { displayName: 'Steven', registered_bool: true });
+      });
+
+      it('should respect existing type tags', function() {
+        analytics.identify('id3', { my_real: 17, my_int_str: 17, my_str_int: 'foo', my_int_date: 3,
+               my_int_bool: 4, mystr_real: 'plugh' });
+        analytics.called(window.FS.identify, 'id3', {
+               my_real: 17,      // didn't become my_real_real (double tag)
+               myInt_str: 17,    // all other tests check type mismatch isn't
+               myStr_int: 'foo', // "fixed" to e.g. myInt_str_int, but keeps
+               myInt_date: 3,    // the user's tag (and their mismatch error)
+               myInt_bool: 4,
+               mystr_real: 'plugh' });
       });
     });
   });

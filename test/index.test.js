@@ -119,6 +119,16 @@ describe('FullStory', function() {
         analytics.identify('id3', { name: 'Steven', registered: true });
         analytics.called(window.FS.identify, 'id3', { displayName: 'Steven', registered_bool: true });
       });
+
+      it('should pass arrays through un-tagged', function() {
+        analytics.identify('id3', { teams: ['eng', 'redsox'] });
+        analytics.called(window.FS.identify, 'id3', { teams: [ 'eng', 'redsox'] });
+      });
+
+      it('should pass user objects through un-tagged', function() {
+        analytics.identify('id3', { account: { level: 'premier', avg_annual: 30000 } });
+        analytics.called(window.FS.identify, 'id3', { account: { level: 'premier', avg_annual: 30000 } });
+      });
     });
   });
 });

@@ -2,7 +2,7 @@
   "name": "analytics.js-integration-fullstory",
   "repo": "segment-integrations/analytics.js-integration-fullstory",
   "description": "The Fullstory analytics.js integration.",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "license": "MIT",
   "main": "lib/index.js",
   "dependencies": {

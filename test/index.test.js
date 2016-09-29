@@ -121,14 +121,14 @@ describe('FullStory', function() {
         analytics.called(window.FS.identify, 'id3', { displayName: 'Steven', registered_bool: true });
       });
 
-      it('should pass arrays through un-tagged', function() {
-        analytics.identify('id3', { teams: ['eng', 'redsox'] });
-        analytics.called(window.FS.identify, 'id3', { teams: [ 'eng', 'redsox'] });
+      it('should skip arrays entirely', function() {
+        analytics.identify('id3', { ok: 'string', teams: ['eng', 'redsox'] });
+        analytics.called(window.FS.identify, 'id3', { ok_str: 'string' });
       });
 
-      it('should pass user objects through un-tagged', function() {
-        analytics.identify('id3', { account: { level: 'premier', avg_annual: 30000 } });
-        analytics.called(window.FS.identify, 'id3', { account: { level: 'premier', avg_annual: 30000 } });
+      it('should skip user objects entirely', function() {
+        analytics.identify('id3', { ok: 7, account: { level: 'premier', avg_annual: 30000 } });
+        analytics.called(window.FS.identify, 'id3', { ok_int: 7 );
       });
 
       it('should respect existing type tags', function() {

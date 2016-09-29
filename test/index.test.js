@@ -45,6 +45,7 @@ describe('FullStory', function() {
         analytics.initialize();
         analytics.page();
         analytics.assert(window.FS);
+        analytics.assert(window.FS.clearUserCookie);
       });
 
       it('should call #load', function() {

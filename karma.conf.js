@@ -7,7 +7,7 @@ module.exports = function(config) {
       'test/**/*.test.js'
     ],
 
-    browsers: ['PhantomJS'],
+    browsers: ['PhantomJS', 'Chrome'],
 
     frameworks: ['browserify', 'mocha'],
 

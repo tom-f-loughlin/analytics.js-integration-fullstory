@@ -18,7 +18,7 @@ TESTS = $(shell find $(TESTS_DIR) -type f -name '*.test.js')
 # Task config.
 #
 KARMA_FLAGS ?= 
-BROWSERS ?= chrome
+BROWSERS ?= Chrome
 
 KARMA_CONF = karma.conf.js
 
@@ -35,12 +35,12 @@ node_modules: package.json $(wildcard node_modules/*/package.json)
 
 # Remove temporary files and build artifacts.
 clean:
-	rm -rf build.js
+	rm -rf coverage
 .PHONY: clean
 
 # Remove temporary files, build artifacts, and vendor dependencies.
 distclean: clean
-	rm -rf components node_modules
+	rm -rf node_modules
 .PHONY: distclean
 
 #
@@ -61,12 +61,12 @@ lint: node_modules
 
 # Test locally in PhantomJS.
 test-phantomjs: node_modules
-	$(KARMA) start $(KARMA_FLAGS) --browser PhantomJS $(KARMA_CONF) --single-run
+	$(KARMA) start $(KARMA_FLAGS) --browsers PhantomJS $(KARMA_CONF) --single-run
 .PHONY: test
 
 # Test locally in the browser.
 test-browser: node_modules
-	$(KARMA) start $(KARMA_FLAGS) --browser $(BROWSERS) $(KARMA_CONF)
+	$(KARMA) start $(KARMA_FLAGS) --browsers $(BROWSERS) $(KARMA_CONF)
 .PHONY: test-browser
 
 # Test shortcut.

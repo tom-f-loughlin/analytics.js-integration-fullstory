@@ -1,5 +1,5 @@
 {
-  "name": "@segment/analytics.js-integration-fullstory",
+  "name": "analytics.js-integration-fullstory",
   "description": "The Fullstory analytics.js integration.",
   "author": "FullStory <support@fullstory.com>",
   "license": "MIT",

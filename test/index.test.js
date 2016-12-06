@@ -128,7 +128,7 @@ describe('FullStory', function() {
 
       it('should skip user objects entirely', function() {
         analytics.identify('id3', { ok: 7, account: { level: 'premier', avg_annual: 30000 } });
-        analytics.called(window.FS.identify, 'id3', { ok_int: 7 );
+        analytics.called(window.FS.identify, 'id3', { ok_int: 7 });
       });
 
       it('should respect existing type tags', function() {

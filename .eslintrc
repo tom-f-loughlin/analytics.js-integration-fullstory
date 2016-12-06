@@ -1,5 +1,5 @@
 {
-  "extends": "segment/browser",
+  "extends": "@segment/eslint-config/browser/legacy",
 
   "rules": {
     "global-strict": 0,

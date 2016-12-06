@@ -1,8 +1,8 @@
 
-var Analytics = require('analytics.js-core').constructor;
-var integration = require('analytics.js-integration');
-var sandbox = require('clear-env');
-var tester = require('analytics.js-integration-tester');
+var Analytics = require('@segment/analytics.js-core').constructor;
+var integration = require('@segment/analytics.js-integration');
+var sandbox = require('@segment/clear-env');
+var tester = require('@segment/analytics.js-integration-tester');
 var FullStory = require('../lib/');
 
 describe('FullStory', function() {
@@ -135,12 +135,12 @@ describe('FullStory', function() {
         analytics.identify('id3', { my_real: 17, my_int_str: 17, my_str_int: 'foo', my_int_date: 3,
                my_int_bool: 4, mystr_real: 'plugh' });
         analytics.called(window.FS.identify, 'id3', {
-               my_real: 17,      // didn't become my_real_real (double tag)
-               myInt_str: 17,    // all other tests check type mismatch isn't
-               myStr_int: 'foo', // "fixed" to e.g. myInt_str_int, but keeps
-               myInt_date: 3,    // the user's tag (and their mismatch error)
-               myInt_bool: 4,
-               mystr_real: 'plugh' });
+          my_real: 17,      // didn't become my_real_real (double tag)
+          myInt_str: 17,    // all other tests check type mismatch isn't
+          myStr_int: 'foo', // "fixed" to e.g. myInt_str_int, but keeps
+          myInt_date: 3,    // the user's tag (and their mismatch error)
+          myInt_bool: 4,
+          mystr_real: 'plugh' });
       });
     });
   });

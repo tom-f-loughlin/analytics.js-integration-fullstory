@@ -1,5 +1,6 @@
 {
   "name": "analytics.js-integration-fullstory",
+  "version": "1.0.1",
   "description": "The Fullstory analytics.js integration.",
   "author": "FullStory <support@fullstory.com>",
   "license": "MIT",
